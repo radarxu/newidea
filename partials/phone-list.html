@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			Search:
+			<input ng-model="query" class="form-control">
+			<hr> Sort by:
+			<select ng-model="orderProp" class="form-control">
+				<option value="name">Alphabetical</option>
+				<option value="age">Newest</option>
+			</select>
+		</div>
+		<div class="col-md-10">
+			<ul class="phones">
+				<li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+					<h4><a href="#/phones/{{phone.id}}">{{phone.name}}</a></h4>
+					<p>Age:{{phone.age}}</p>
+					<p>{{phone.snippet}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
